@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WWSC ChatBot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="section left">
+            <h1>Welcome to the <b>WSSC ChatBot</b></h1>
+            <p>For more information, <a href="#">click here</a>.</p>
+            <button id="get-started-btn" onclick="startConversation()">Get Started</button>
+        </div>
+        <div class="section right">
+            <div class="chatbox" id="chatbox"></div>
+            <div class="suggested-responses" id="suggested-responses"></div>
+            <div class="chat-input" id="chat-input">
+                <input type="text" id="user-input" placeholder="Type a message..."/>
+                <button class="mic">
+                    <span class="material-icons-round">mic</span>
+                </button>
+                <button class="send" onclick="sendMessage()">
+                    <span class="material-icons-round">send</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
