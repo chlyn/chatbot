@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const userInput = document.getElementById('user-input');
 
@@ -149,3 +150,36 @@ function askIfNeedsHelp() {
     chatbox.appendChild(buttonContainer);
     chatbox.scrollTop = chatbox.scrollHeight;
 }
+
+function startVoiceRecognition() {
+    if (!('webkitSpeechRecognition' in window)) {
+        alert("Your browser does not support speech recognition. Please use Google Chrome.");
+        return;
+    }
+
+    const recognition = new webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'en-US';
+
+    recognition.onstart = function () {
+        console.log("Voice recognition started. Speak into the microphone.");
+    };
+
+    recognition.onerror = function (event) {
+        console.error("Speech recognition error detected: " + event.error);
+    };
+
+    recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById('user-input').value = transcript;
+    };
+
+    recognition.onend = function () {
+        console.log("Voice recognition ended.");
+    };
+
+    recognition.start();
+}
+
+document.querySelector('.mic').addEventListener('click', startVoiceRecognition);
