@@ -11,90 +11,104 @@ body {
     display: flex;
     align-items: center; 
     justify-content: center;
-    background-color: #ffffff;
+    background-color: #f6f6f6;
     font-family: 'Open Sans', sans-serif !important;
 }
 
 .content {
-    background: none; 
-    box-shadow: none; 
-    border-radius: 0; 
-    padding: 0;
-    width: auto; 
-    height: auto;
-    text-align: center; 
+    width: 80%; 
+    height: 80%;
+    max-width: 80vw; 
+    max-height: 80vh;
+    background: #ffffff; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.063); 
+    border-radius: 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: stretch; 
+    text-align: left; 
+    overflow: hidden;
 }
 
 #left-content {
-    width: 100%;
-    display: block;
     background: #fdfdfd;
+    width: 40%;
+    display: block;
     padding: 50px;
-    border-right: none;
+    border-right: 1px solid #ccc;
 }
 
 #right-content {
-    display: none;
-}
-
-.content.active #left-content {
-    display: none;
-}
-
-.content.active #right-content {
-    width: 100%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-@media (min-width: 801px) {
+.content.active #left-content { 
+    display: block;
+    width: 40%;
+}
+
+.content.active #right-content {
+    display: flex;
+    width: 60%;
+}
+
+@media (max-width: 800px) {
 
     body {
-        background-color: #f6f6f6;
+        background-color: #ffffff;
+    }
+
+    .content {
+        background: none; 
+        box-shadow: none; 
+        border-radius: 0; 
+        padding: 0;
+        width: auto; 
+        height: auto;
+        text-align: center; 
     }
     
-    .content {
-        width: 80%; 
-        height: 80%;
-        max-width: 80vw; 
-        max-height: 80vh;
-        background: #ffffff; 
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.063); 
-        border-radius: 20px; 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: stretch; 
-        text-align: left; 
-        overflow: hidden;
-    }
-
     #left-content {
-        background: #fdfdfd;
-        width: 40%;
+        width: 100%;
         display: block;
+        background: #fdfdfd;
         padding: 50px;
-        border-right: 1px solid #ccc;
+        border-right: none;
     }
-
+    
     #right-content {
-        width: 60%;
+        display: none;
+    }
+    
+    .content.active #left-content {
+        display: none;
+    }
+    
+    .content.active #right-content {
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
 
-    .content.active #left-content { 
-        display: block;
-        width: 40%;
+    .chatbox {
+        position: fixed;
+        top: 0;
+        left: 0;
     }
 
-    .content.active #right-content {
-        display: flex;
-        width: 60%;
-    }
+    .chat-input {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    } 
 
 }
+
+/* Welcome Sign (Left-Content) */
 
 h1 {
     font-size: 24px;
@@ -146,6 +160,8 @@ h1 b {
     background-color: #003f7f;
     transform: scale(0.98);
 }
+
+/* Chatbox (Right-Content) */
 
 .right .send span.material-icons-round {
     font-size: 18px;
