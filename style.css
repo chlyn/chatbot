@@ -27,6 +27,7 @@ body {
 
 #left-content {
     width: 100%;
+    display: block;
     background: #fdfdfd;
     padding: 50px;
     border-right: none;
@@ -71,6 +72,7 @@ body {
     #left-content {
         background: #fdfdfd;
         width: 40%;
+        display: block;
         padding: 50px;
         border-right: 1px solid #ccc;
     }
@@ -84,10 +86,12 @@ body {
 
     .content.active #left-content { 
         display: block;
+        width: 40%;
     }
 
     .content.active #right-content {
         display: flex;
+        width: 60%;
     }
 
 }
