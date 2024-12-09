@@ -7,65 +7,87 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh; 
+    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center; 
-    background-color: #f6f6f6;
+    justify-content: center;
+    background-color: #ffffff;
     font-family: 'Open Sans', sans-serif !important;
 }
 
 .content {
-    width: 80%; 
-    height: 80%;
-    max-width: 80vw; 
-    max-height: 80vh;
-    background: #ffffff; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.063); 
-    border-radius: 20px; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: stretch; 
-    text-align: left; 
-    overflow: hidden;
+    background: none; 
+    box-shadow: none; 
+    border-radius: 0; 
+    padding: 0;
+    width: auto; 
+    height: auto;
+    text-align: center; 
 }
 
-.left {
+#left-content {
+    width: 100%;
     background: #fdfdfd;
-    width: 40%;
     padding: 50px;
-    border-right: 1px solid #ccc;
+    border-right: none;
 }
 
-.right {
-    width: 60%;
+#right-content {
+    display: none;
+}
+
+.content.active #left-content {
+    display: none;
+}
+
+.content.active #right-content {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-@media (max-width: 800px) {
+@media (min-width: 801px) {
+
     body {
-        background-color: #ffffff;
+        background-color: #f6f6f6;
     }
-
+    
     .content {
-        background: none; 
-        box-shadow: none; 
-        border-radius: 0; 
-        padding: 0;
-        width: auto; 
-        height: auto;
-        text-align: center; 
+        width: 80%; 
+        height: 80%;
+        max-width: 80vw; 
+        max-height: 80vh;
+        background: #ffffff; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.063); 
+        border-radius: 20px; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: stretch; 
+        text-align: left; 
+        overflow: hidden;
     }
 
-    .left {
-        width: 100%;
-        border-right: none;
+    #left-content {
+        background: #fdfdfd;
+        width: 40%;
+        padding: 50px;
+        border-right: 1px solid #ccc;
     }
 
-    .right {
-        display: none;
+    #right-content {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .content.active #left-content { 
+        display: block;
+    }
+
+    .content.active #right-content {
+        display: flex;
     }
 
 }
