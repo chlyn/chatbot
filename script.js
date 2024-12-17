@@ -53,8 +53,11 @@ async function fetchBotResponse(userText) {
 }
 
 function startConversation() {
+    const content = document.querySelector('.content');
+    content.classList.add('active');
+
     const chatInput = document.getElementById('chat-input');
-    chatInput.style.display = 'flex';
+    chatInput.classList.add('active');
 
     const getStartedButton = document.getElementById('get-started-btn');
     getStartedButton.style.display = 'none';

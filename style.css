@@ -7,10 +7,10 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh; 
+    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center; 
+    justify-content: center;
     background-color: #f6f6f6;
     font-family: 'Open Sans', sans-serif !important;
 }
@@ -30,45 +30,81 @@ body {
     overflow: hidden;
 }
 
-.left {
+#left-content {
     background: #fdfdfd;
     width: 40%;
+    display: block;
     padding: 50px;
     border-right: 1px solid #ccc;
 }
 
-.right {
+#right-content {
     width: 60%;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
+.content.active #left-content { 
+    display: block;
+    width: 40%;
+}
+
+.content.active #right-content {
+    display: flex;
+    width: 60%;
+}
+
 @media (max-width: 800px) {
+
     body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: #ffffff;
     }
 
     .content {
+        width: 100%; 
+        height: 100%;
+        max-width: 100vw; 
+        max-height: 100vh;
         background: none; 
         box-shadow: none; 
         border-radius: 0; 
+        justify-content: center;
         padding: 0;
-        width: auto; 
-        height: auto;
         text-align: center; 
+        flex-direction: column;
     }
-
-    .left {
+    
+    #left-content {
         width: 100%;
+        display: block;
+        background: #fdfdfd;
+        padding: 50px;
         border-right: none;
     }
-
-    .right {
+    
+    #right-content {
         display: none;
+    }
+    
+    .content.active #left-content {
+        display: none;
+    }
+    
+    .content.active #right-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
 }
+
+/* Welcome Sign (Left-Content) */
 
 h1 {
     font-size: 24px;
@@ -120,6 +156,8 @@ h1 b {
     background-color: #003f7f;
     transform: scale(0.98);
 }
+
+/* Chatbox (Right-Content) */
 
 .right .send span.material-icons-round {
     font-size: 18px;
@@ -277,6 +315,3 @@ input {
     background-color: #3D81E2; 
     color: white;
 }
-
-
-
